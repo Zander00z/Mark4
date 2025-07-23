@@ -88,143 +88,205 @@ import { LoginCredentials } from '../../models/user.model';
       min-height: 100vh;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       padding: 20px;
+      position: relative;
+    }
+
+    .login-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="20" cy="80" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+      pointer-events: none;
     }
 
     .login-card {
-      background: white;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      background: rgba(255, 255, 255, 0.95);
+      padding: 50px;
+      border-radius: 24px;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
       width: 100%;
-      max-width: 400px;
+      max-width: 450px;
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+      z-index: 1;
+    }
+
+    .login-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+      border-radius: 24px 24px 0 0;
     }
 
     h1 {
       text-align: center;
-      color: #333;
-      margin-bottom: 30px;
-      font-size: 28px;
-      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 40px;
+      font-size: 32px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .role-selector {
       display: flex;
-      gap: 10px;
-      margin-bottom: 30px;
+      gap: 12px;
+      margin-bottom: 40px;
+      padding: 6px;
+      background: rgba(102, 126, 234, 0.1);
+      border-radius: 16px;
     }
 
     .role-btn {
       flex: 1;
-      padding: 12px;
-      border: 2px solid #e2e8f0;
-      background: white;
-      border-radius: 8px;
+      padding: 14px 20px;
+      border: none;
+      background: transparent;
+      border-radius: 12px;
       cursor: pointer;
       transition: all 0.3s ease;
-      font-weight: 500;
+      font-weight: 600;
+      color: #6b7280;
+      position: relative;
     }
 
     .role-btn:hover {
-      border-color: #6B46C1;
+      color: #667eea;
+      background: rgba(255, 255, 255, 0.5);
     }
 
     .role-btn.active {
-      background: #6B46C1;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
-      border-color: #6B46C1;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      transform: translateY(-1px);
     }
 
     .form-group {
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
 
     label {
       display: block;
-      margin-bottom: 5px;
-      font-weight: 500;
+      margin-bottom: 8px;
+      font-weight: 600;
       color: #374151;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     input {
       width: 100%;
-      padding: 12px;
-      border: 2px solid #e2e8f0;
-      border-radius: 8px;
+      padding: 16px 20px;
+      border: 2px solid rgba(226, 232, 240, 0.5);
+      border-radius: 12px;
       font-size: 16px;
       transition: border-color 0.3s ease;
       box-sizing: border-box;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
     }
 
     input:focus {
       outline: none;
-      border-color: #6B46C1;
+      border-color: #667eea;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
     }
 
     .login-btn {
       width: 100%;
-      padding: 12px;
-      background: #6B46C1;
+      padding: 16px 24px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
       border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: 600;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 700;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
     }
 
     .login-btn:hover:not(:disabled) {
-      background: #553C9A;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
     }
 
     .login-btn:disabled {
-      background: #9CA3AF;
+      background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
       cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
     }
 
     .error {
-      color: #EF4444;
-      font-size: 14px;
-      margin-top: 5px;
+      color: #ef4444;
+      font-size: 13px;
+      margin-top: 8px;
+      font-weight: 500;
     }
 
     .error-message {
-      color: #EF4444;
+      color: #ef4444;
       text-align: center;
-      margin-top: 15px;
-      padding: 10px;
-      background: #FEF2F2;
-      border-radius: 6px;
-      border: 1px solid #FECACA;
+      margin-top: 20px;
+      padding: 12px 16px;
+      background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+      border-radius: 8px;
+      border: 1px solid #fecaca;
+      font-weight: 500;
     }
 
     .demo-credentials {
-      margin-top: 30px;
-      padding: 20px;
-      background: #F8FAFC;
-      border-radius: 8px;
-      border: 1px solid #E2E8F0;
+      margin-top: 40px;
+      padding: 25px;
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      border-radius: 12px;
+      border: 1px solid rgba(226, 232, 240, 0.5);
     }
 
     .demo-credentials h3 {
       margin: 0 0 10px 0;
-      color: #374151;
-      font-size: 16px;
+      color: #1f2937;
+      font-size: 17px;
+      font-weight: 700;
     }
 
     .demo-credentials p {
       margin: 5px 0;
-      font-size: 14px;
-      color: #6B7280;
+      font-size: 13px;
+      color: #6b7280;
+      font-weight: 500;
     }
 
     @media (max-width: 480px) {
       .login-card {
-        padding: 30px 20px;
+        padding: 40px 25px;
+        margin: 15px;
       }
       
       .role-selector {
         flex-direction: column;
+        gap: 8px;
+      }
+
+      h1 {
+        font-size: 28px;
+        margin-bottom: 30px;
       }
     }
   `]
